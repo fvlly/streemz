@@ -1,9 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
+
 import { signIn, signOut } from "../actions";
+
 const GoogleAuth = (props) => {
-  //   const [signIn, setSignIn] = useState(null);
   const auth = useRef("");
 
   useEffect(() => {
@@ -16,38 +17,16 @@ const GoogleAuth = (props) => {
           plugin_name: "streemz",
         })
         .then(() => {
-          //init  returns a promsie after initialization
-          auth.current = window.gapi.auth2.getAuthInstance(); // ref to auth instance to signin/out
-          //   setSignIn(auth.current.isSignedIn.get());
+          auth.current = window.gapi.auth2.getAuthInstance();
           onAuthChange(auth.current.isSignedIn.get());
           auth.current.isSignedIn.listen(onAuthChange);
         });
     });
   }, []);
 
-  const renderAuthButton = () => {
-    if (props.isSignedIn === null) {
-      return null;
-    } else if (props.isSignedIn) {
-      return (
-        <Button onClick={() => onSignOut()} variant="warning">
-          <i className="bi bi-google"></i>
-          Sign Out
-        </Button>
-      );
-    } else {
-      return (
-        <Button onClick={() => onSignIn()} variant="warning">
-          <i className="bi bi-google"></i>
-          Sign In
-        </Button>
-      );
-    }
-  };
-
   const onAuthChange = (isSignedIn) => {
     if (isSignedIn) {
-      props.signIn();
+      props.signIn(auth.current.currentUser.get().getId());
     } else {
       props.signOut();
     }
@@ -60,11 +39,38 @@ const GoogleAuth = (props) => {
     auth.current.signOut();
   };
 
+  const renderAuthButton = () => {
+    if (props.isSignedIn === null) return;
+    if (props.isSignedIn)
+      return (
+        <Button
+          onClick={() => {
+            onSignOut();
+          }}
+          variant="danger"
+        >
+          Sign Out
+        </Button>
+      );
+    return (
+      <Button
+        onClick={() => {
+          onSignIn();
+        }}
+        variant="danger"
+      >
+        Sign In
+      </Button>
+    );
+  };
+
   return <div className="google-auth">{renderAuthButton()}</div>;
 };
 
 const mapStateToProps = (state) => {
-  return { isSignedIn: state.auth.isSignedIn };
+  return {
+    isSignedIn: state.auth.isSignedIn,
+  };
 };
 
 export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth);
