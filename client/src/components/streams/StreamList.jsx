@@ -25,7 +25,7 @@ const StreamList = ({ streams, fetchStreams, currentUserId, isSignedIn }) => {
       return (
         <Flex gap={2} align="center">
           <Link to={`streams/edit/${stream.id}`}>
-            <Button variant='outline' colorScheme="green">Edit</Button>
+            <Button variant='outline' colorScheme="blue">Edit</Button>
           </Link>
           <Link to={`streams/delete/${stream.id}`}>
             <Button colorScheme="red">Delete</Button>
