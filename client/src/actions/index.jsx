@@ -1,3 +1,4 @@
+import history from "../history";
 import jsonServer from "../apis/jsonServer";
 import {
   SIGN_IN,
@@ -26,6 +27,7 @@ export const createStream = (formValues) => async (dispatch,getState) => {
   const response = await jsonServer.post("/streams", {...formValues, userId});
 
   dispatch({ type: CREATE_STREAM, payload: response.data });
+  history.push('/')
 };
 export const editStream = (id, formValues) => async (dispatch) => {
   const response = await jsonServer.put(`/streams/${id}`, formValues);

@@ -14,7 +14,7 @@ import { fetchStreams } from "../../actions";
 import { AiFillCamera } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const StreamList = ({ streams, fetchStreams, currentUserId,isSignedIn }) => {
+const StreamList = ({ streams, fetchStreams, currentUserId, isSignedIn }) => {
   useEffect(() => {
     fetchStreams();
   }, []);
@@ -23,30 +23,34 @@ const StreamList = ({ streams, fetchStreams, currentUserId,isSignedIn }) => {
   const renderAdmin = (stream) => {
     if (stream.userId === currentUserId) {
       return (
-        <Flex gap={2}>
-          <Button colorScheme="green">Edit</Button>
-          <Button colorScheme="red">Delete</Button>
+        <Flex gap={2} align="center">
+          <Link to={`streams/edit/${stream.id}`}>
+            <Button variant='outline' colorScheme="green">Edit</Button>
+          </Link>
+          <Link to={`streams/delete/${stream.id}`}>
+            <Button colorScheme="red">Delete</Button>
+          </Link>
         </Flex>
       );
     }
   };
 
   const renderCreateButton = () => {
-    if(isSignedIn) {
+    if (isSignedIn) {
       return (
-        <Flex align='center' justify='end' my={6}>
-          <Link to='/streams/new' >
-          <Button colorScheme='blue'>Create stream</Button>
-        </Link>
+        <Flex align="center" justify="end" my={6}>
+          <Link to="/streams/new">
+            <Button colorScheme="blue">Create stream</Button>
+          </Link>
         </Flex>
-      )
+      );
     }
-  }
+  };
 
   const renderList = () => {
     return streams.map((stream) => {
       return (
-        <>
+        <Box key={stream.id}>
           <Flex>
             <Flex align="center" gap="3">
               <Icon as={AiFillCamera} w={6} h={6} />
@@ -61,7 +65,7 @@ const StreamList = ({ streams, fetchStreams, currentUserId,isSignedIn }) => {
             {renderAdmin(stream)}
           </Flex>
           <Divider />
-        </>
+        </Box>
       );
     });
   };

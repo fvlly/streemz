@@ -1,9 +1,24 @@
-import React from 'react'
+import { Box, Heading, Text } from "@chakra-ui/react";
+import { connect } from "react-redux";
 
-const StreamEdit = () => {
-  return (
-    <div>StreamEdit</div>
+//react router passes prop for url manipulation
+
+const StreamEdit = (props) => {
+
+  return(
+    <Box>
+      <Heading textAlign='center'>Edit Streams</Heading>
+      {props.stream && <Text>{props.stream.title}</Text>}
+    </Box>
   )
-}
+};
 
-export default StreamEdit
+const mapStateToProps = (state, ownProps) => {
+  const { id } = ownProps.match.params;
+
+  return {
+    stream: state.streams[id],
+  };
+};
+
+export default connect(mapStateToProps)(StreamEdit);
