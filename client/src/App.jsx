@@ -1,10 +1,10 @@
 import { BrowserRouter, Route } from "react-router-dom";
 
-import StreamList from "./components/StreamList";
-import StreamCreate from "./components/StreamCreate";
-import StreamDelete from "./components/StreamDelete";
-import StreamEdit from "./components/StreamEdit";
-import StreamShow from "./components/StreamShow";
+import StreamList from "./components/streams/StreamList";
+import StreamCreate from "./components/streams/StreamCreate";
+import StreamDelete from "./components/streams/StreamDelete";
+import StreamEdit from "./components/streams/StreamEdit";
+import StreamShow from "./components/streams/StreamShow";
 import Header from "./components/Header";
 import { Container } from "react-bootstrap";
 

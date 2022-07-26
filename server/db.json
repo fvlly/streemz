@@ -1,0 +1,70 @@
+{
+  "streams": [
+    {
+      "title": "stream 1",
+      "description": "trying it out",
+      "id": 1
+    },
+    {
+      "title": "stream2",
+      "description": "focus on react",
+      "id": 2
+    },
+    {
+      "title": "stream 3",
+      "description": "monday we are live",
+      "id": 3
+    },
+    {
+      "title": "title 3",
+      "description": "focus on react",
+      "id": 4
+    },
+    {
+      "title": "Title 4",
+      "description": "What are we",
+      "id": 5
+    },
+    {
+      "title": "Title 4",
+      "description": "What are we",
+      "id": 6
+    },
+    {
+      "title": "testing",
+      "description": "show me my userId",
+      "id": 7
+    },
+    {
+      "title": "food",
+      "description": "Let us eat",
+      "id": 8
+    },
+    {
+      "title": "yyyy",
+      "description": "hey I am learning",
+      "id": 9
+    },
+    {
+      "title": "yyyy",
+      "description": "hey I am learning",
+      "id": 10
+    },
+    {
+      "title": "react redux",
+      "description": "react forms",
+      "id": 11
+    },
+    {
+      "title": "midnight study",
+      "description": "It is starting to get frustrating ",
+      "id": 12
+    },
+    {
+      "title": "FIFA 22",
+      "description": "Deen vs Dippy",
+      "userId": "104496242170456416045",
+      "id": 13
+    }
+  ]
+}
