@@ -1,4 +1,3 @@
-
 import { reduxForm, Field } from "redux-form/dist/redux-form";
 import {
   Input,
@@ -53,5 +52,6 @@ const validate = (formValues) => {
 
 export default reduxForm({
   form: "streamForm",
+  enableReinitialize: true,
   validate,
 })(StreamForm);

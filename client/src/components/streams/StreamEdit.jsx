@@ -1,7 +1,7 @@
 import _ from "lodash";
-import { Box, Heading } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
+import { Box, Heading } from "@chakra-ui/react";
 
 import { fetchStream, editStream } from "../../actions";
 import StreamForm from "./StreamForm";
@@ -15,7 +15,7 @@ const StreamEdit = (props) => {
 
   console.log(props);
 
-  const onSubmit = (formValues) => {
+  const onFormSubmit = (formValues) => {
     props.editStream(props.match.params.id, formValues);
   };
 
@@ -24,8 +24,8 @@ const StreamEdit = (props) => {
       return <Heading>Loading</Heading>;
     }
 
-    // const { title, description } = props.stream;
-    // console.log(title,description);
+    const { title, description } = props.stream;
+    console.log(title, description);
 
     return (
       <Box>
@@ -33,8 +33,8 @@ const StreamEdit = (props) => {
           Edit Stream
         </Heading>
         <StreamForm
-           initialValues={_.pick(props.stream, "title", "description")}
-          onFormSubmit={onSubmit}
+          initialValues={_.pick(props.stream, ['title','description']) }
+          onFormSubmit={onFormSubmit}
         />
       </Box>
     );
@@ -51,6 +51,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchStream, editStream })(
-  StreamEdit
-);
+export default connect(
+  mapStateToProps,
+   { fetchStream, editStream }
+   )(StreamEdit);

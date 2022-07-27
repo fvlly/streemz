@@ -11,18 +11,6 @@
       "id": 2
     },
     {
-      "title": "Tuesday Awoof",
-      "description": "work on url based selection",
-      "userId": "100357275484759317079",
-      "id": 3
-    },
-    {
-      "title": "Component Reuse",
-      "description": "Refactored streamCreate and Edit with StreamForm",
-      "userId": "100357275484759317079",
-      "id": 4
-    },
-    {
       "title": "Component Reuse",
       "description": "Refactored streamCreate and Edit with StreamForm",
       "userId": "100357275484759317079",
@@ -32,12 +20,6 @@
       "title": "Edited stream",
       "description": "Finished the steamEdit component",
       "id": 6
-    },
-    {
-      "title": "naming convention",
-      "description": "props.OnSubmit doesn't work",
-      "userId": "100357275484759317079",
-      "id": 7
     }
   ]
 }
