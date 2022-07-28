@@ -1,0 +1,14 @@
+{
+  "name": "rtmpserver",
+  "version": "1.0.0",
+  "description": "real time messsaging protocol",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "LAI",
+  "license": "ISC",
+  "dependencies": {
+    "node-media-server": "^2.4.4"
+  }
+}

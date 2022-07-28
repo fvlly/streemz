@@ -55,9 +55,11 @@ const StreamList = ({ streams, fetchStreams, currentUserId, isSignedIn }) => {
             <Flex align="center" gap="3">
               <Icon as={AiFillCamera} w={6} h={6} />
               <Box>
-                <Text fontWeight="500" fontSize="18">
+               <Link to={`streams/show/${stream.id}`} >
+               <Text  fontWeight="500" fontSize="18">
                   {stream.title}
                 </Text>
+               </Link>
                 <Text>{stream.description}</Text>
               </Box>
             </Flex>
